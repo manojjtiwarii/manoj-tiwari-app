@@ -1,0 +1,682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0">
+<title>Manoj Tiwari — GST &amp; Income Tax Consultant</title>
+<meta name="description" content="GST filing, income tax, TDS and bookkeeping services in Kolkata.">
+<meta name="theme-color" content="#0B1E3B">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="MT Tax">
+<link rel="manifest" href="manifest.json">
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<link rel="icon" href="icon-192.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#081428;
+    --navy-900:#0B1E3B;
+    --navy-800:#11284D;
+    --navy-700:#1B3A6B;
+    --navy-600:#274C82;
+    --gold:#C9A227;
+    --gold-light:#E7C766;
+    --gold-dim:#8A712A;
+    --bg:#F6F7FA;
+    --bg-alt:#EDEFF4;
+    --white:#FFFFFF;
+    --text-dark:#101828;
+    --text-muted:#5B6474;
+    --line:#E2E5EC;
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+  html,body{height:100%;}
+  body{
+    margin:0;background:var(--bg);color:var(--text-dark);font-family:'Inter',sans-serif;
+    -webkit-font-smoothing:antialiased; overscroll-behavior-y:none;
+    padding-top:var(--safe-top);
+  }
+  h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600;margin:0;color:var(--text-dark);}
+  a{color:inherit;text-decoration:none;}
+  button{font-family:inherit;}
+  ::selection{background:var(--gold-light);color:var(--navy-950);}
+  :focus-visible{outline:2px solid var(--gold);outline-offset:2px;}
+  @media (prefers-reduced-motion: reduce){ *{animation-duration:.001ms !important; transition-duration:.001ms !important;} }
+
+  /* APP SHELL */
+  .app{max-width:520px;margin:0 auto;min-height:100%;background:var(--bg);position:relative;box-shadow:0 0 60px rgba(8,20,40,0.08);}
+
+  .topbar{
+    position:sticky; top:0; z-index:40;
+    background:linear-gradient(155deg, var(--navy-950), var(--navy-900));
+    padding:14px 18px calc(14px);
+    display:flex; align-items:center; justify-content:space-between;
+    border-bottom:1px solid rgba(201,162,39,0.25);
+  }
+  .topbar .brand{display:flex; flex-direction:column; line-height:1.1;}
+  .topbar .brand b{font-family:'Playfair Display',serif;font-size:1.12rem;color:var(--white);}
+  .topbar .brand b span{color:var(--gold-light);}
+  .topbar .brand small{font-size:0.68rem;color:rgba(255,255,255,0.55);letter-spacing:0.06em;text-transform:uppercase;margin-top:2px;}
+  .topbar .call-btn{
+    width:38px;height:38px;border-radius:50%;background:var(--gold);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;border:none;
+  }
+  .topbar .call-btn svg{width:18px;height:18px;stroke:var(--navy-950);}
+
+  .install-banner{
+    display:none; align-items:center; gap:12px; background:var(--gold-light);
+    color:var(--navy-950); padding:10px 16px; font-size:0.82rem; font-weight:600;
+  }
+  .install-banner.show{display:flex;}
+  .install-banner button{
+    margin-left:auto; background:var(--navy-950); color:var(--white); border:none;
+    padding:7px 14px; border-radius:20px; font-size:0.78rem; font-weight:700;
+  }
+  .install-banner .dismiss{background:transparent;color:var(--navy-950);opacity:0.6;padding:7px;margin-left:4px;}
+
+  main{padding:20px 18px calc(96px + var(--safe-bottom));}
+
+  .screen{display:none;animation:fadeIn .28s ease;}
+  .screen.active{display:block;}
+  @keyframes fadeIn{ from{opacity:0; transform:translateY(6px);} to{opacity:1; transform:translateY(0);} }
+
+  /* BOTTOM NAV */
+  .tabbar{
+    position:fixed; left:50%; transform:translateX(-50%); bottom:0; z-index:50;
+    width:100%; max-width:520px;
+    background:rgba(11,30,59,0.98); backdrop-filter:blur(8px);
+    border-top:1px solid rgba(201,162,39,0.22);
+    display:flex; padding:8px 6px calc(8px + var(--safe-bottom));
+  }
+  .tab{
+    flex:1; display:flex; flex-direction:column; align-items:center; gap:4px;
+    background:none;border:none;color:rgba(255,255,255,0.5);padding:6px 2px;border-radius:10px;
+    transition:color .15s ease;
+  }
+  .tab svg{width:21px;height:21px;stroke:currentColor;}
+  .tab span{font-size:0.66rem;font-weight:600;letter-spacing:0.01em;}
+  .tab.active{color:var(--gold-light);}
+  .tab.active svg{filter:drop-shadow(0 0 6px rgba(231,199,102,0.4));}
+
+  /* SHARED */
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase;
+    color:var(--gold-dim); font-weight:700; margin-bottom:10px;
+  }
+  .card{background:var(--white); border:1px solid var(--line); border-radius:12px; padding:18px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:8px;
+    padding:13px 20px;font-size:0.9rem;font-weight:700;border-radius:9px;border:none;
+    width:100%; transition:transform .15s ease, background .15s ease;
+  }
+  .btn svg{width:16px;height:16px;}
+  .btn-gold{background:var(--gold);color:var(--navy-950);}
+  .btn-gold:active{transform:scale(0.97);background:var(--gold-light);}
+  .btn:disabled{opacity:0.4;pointer-events:none;}
+  .btn-navy{background:var(--navy-900);color:var(--white);}
+  .btn-navy:active{transform:scale(0.97);}
+  .btn-ghost{background:transparent;border:1.5px solid var(--navy-700);color:var(--navy-800);}
+  .btn-ghost:active{transform:scale(0.97);background:var(--bg-alt);}
+  .btn-row{display:flex;gap:10px;margin-top:14px;}
+  .btn-row .btn{flex:1;}
+
+  /* HOME */
+  .hero-card{
+    background:linear-gradient(155deg, var(--navy-950), var(--navy-800));
+    border-radius:16px; padding:26px 22px; position:relative; overflow:hidden;
+  }
+  .hero-card .eyebrow{color:var(--gold-light);}
+  .hero-card h1{color:var(--white);font-size:1.55rem;line-height:1.3;max-width:20ch;}
+  .hero-card h1 em{color:var(--gold-light);font-style:normal;}
+  .hero-card p{margin-top:12px;color:rgba(255,255,255,0.7);font-size:0.9rem;line-height:1.6;}
+  .hero-card .btn-row{margin-top:20px;}
+
+  .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px;}
+  .stat-card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:14px;text-align:center;}
+  .stat-card .n{font-family:'Playfair Display',serif;font-weight:700;font-size:1.25rem;color:var(--navy-800);}
+  .stat-card .l{font-size:0.7rem;color:var(--text-muted);margin-top:2px;}
+
+  .section-label{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);margin:26px 0 12px;}
+  .section-label:first-of-type{margin-top:22px;}
+
+  .mini-list{display:flex;flex-direction:column;gap:10px;}
+  .mini-row{
+    display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--line);
+    border-radius:10px;padding:13px 14px;
+  }
+  .mini-row .ic{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--navy-800),var(--navy-700));display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .mini-row .ic svg{width:17px;height:17px;stroke:var(--gold-light);}
+  .mini-row .t{font-size:0.86rem;font-weight:600;}
+  .mini-row .s{font-size:0.76rem;color:var(--text-muted);margin-top:1px;}
+
+  .why-strip{background:var(--navy-900);border-radius:12px;padding:18px;margin-top:8px;}
+  .why-strip li{display:flex;gap:10px;color:rgba(255,255,255,0.82);font-size:0.83rem;line-height:1.5;padding:9px 0;border-bottom:1px solid rgba(255,255,255,0.08);}
+  .why-strip li:last-child{border-bottom:none;}
+  .why-strip .check{flex-shrink:0;width:18px;height:18px;border-radius:50%;background:rgba(201,162,39,0.18);display:flex;align-items:center;justify-content:center;margin-top:1px;}
+  .why-strip .check svg{width:10px;height:10px;stroke:var(--gold-light);}
+  .why-strip{list-style:none;padding:18px;margin:8px 0 0;}
+
+  /* SERVICES */
+  .svc-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;}
+  .svc-card .ic-badge{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--navy-800),var(--navy-700));display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
+  .svc-card .ic-badge svg{width:20px;height:20px;stroke:var(--gold-light);}
+  .svc-card h3{font-size:1rem;margin-bottom:5px;}
+  .svc-card p{margin:0;color:var(--text-muted);font-size:0.85rem;line-height:1.55;}
+
+  .chip-row{display:flex;flex-wrap:wrap;gap:8px;margin-top:6px;}
+  .chip{background:var(--bg-alt);border:1px solid var(--line);color:var(--text-dark);font-size:0.78rem;font-weight:600;padding:8px 13px;border-radius:20px;}
+
+  /* FORMS */
+  .field{margin-bottom:14px;}
+  .field label{display:block;font-size:0.78rem;font-weight:600;color:var(--text-dark);margin-bottom:6px;}
+  .field input, .field select, .field textarea{
+    width:100%;border:1.5px solid var(--line);border-radius:9px;padding:12px 13px;
+    font-size:0.92rem;font-family:'Inter',sans-serif;background:var(--white);color:var(--text-dark);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--gold);outline:none;}
+  .field textarea{resize:vertical;min-height:90px;}
+  .hint{font-size:0.76rem;color:var(--text-muted);margin-top:6px;line-height:1.5;}
+  .status-msg{font-size:0.82rem;font-weight:600;padding:10px 12px;border-radius:8px;margin-top:12px;display:none;}
+  .status-msg.show{display:block;}
+  .status-msg.ok{background:#E8F3E9;color:#2A6B33;}
+  .status-msg.err{background:#FBEAEA;color:#A3312B;}
+
+  /* DOCUMENTS */
+  .upload-box{
+    border:1.5px dashed var(--navy-600); border-radius:12px; padding:26px 18px; text-align:center;
+    background:var(--bg-alt); cursor:pointer;
+  }
+  .upload-box svg{width:30px;height:30px;stroke:var(--navy-700);margin-bottom:10px;}
+  .upload-box .t{font-size:0.88rem;font-weight:700;color:var(--navy-800);}
+  .upload-box .s{font-size:0.78rem;color:var(--text-muted);margin-top:4px;}
+  .file-chip{
+    display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--line);
+    border-radius:10px;padding:12px 14px;margin-top:12px;
+  }
+  .file-chip .ic{width:32px;height:32px;border-radius:8px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .file-chip .ic svg{width:16px;height:16px;stroke:var(--navy-700);}
+  .file-chip .name{font-size:0.84rem;font-weight:600;flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;}
+  .file-chip .rm{background:none;border:none;color:var(--text-muted);font-size:1.1rem;padding:4px 8px;}
+
+  /* CONTACT */
+  .contact-line{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center;}
+  .contact-line:last-child{border-bottom:none;}
+  .contact-line .ic{width:38px;height:38px;border-radius:9px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .contact-line .ic svg{width:18px;height:18px;stroke:var(--navy-700);}
+  .contact-line .lbl{font-size:0.72rem;text-transform:uppercase;letter-spacing:0.06em;color:var(--text-muted);font-weight:700;}
+  .contact-line a, .contact-line span.val{display:block;margin-top:2px;font-size:0.94rem;font-weight:600;color:var(--text-dark);}
+
+  .footer-note{text-align:center;color:var(--text-muted);font-size:0.76rem;margin-top:28px;line-height:1.6;}
+</style>
+</head>
+<body>
+
+<div class="app">
+
+  <header class="topbar">
+    <div class="brand">
+      <b>Manoj <span>Tiwari</span></b>
+      <small>GST &amp; Income Tax Consultant</small>
+    </div>
+    <a class="call-btn" href="tel:+919830383777" aria-label="Call Manoj Tiwari">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 3a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c1 .3 2 .5 3 .6a2 2 0 011.7 2z"/></svg>
+    </a>
+  </header>
+
+  <div class="install-banner" id="installBanner">
+    <span>Install this app on your phone</span>
+    <button id="installBtn">Install</button>
+    <button class="dismiss" id="installDismiss" aria-label="Dismiss">✕</button>
+  </div>
+
+  <main>
+
+    <!-- HOME -->
+    <section class="screen active" data-screen="home">
+      <div class="hero-card">
+        <div class="eyebrow">Kolkata · 10+ Years</div>
+        <h1>Precise compliance, <em>trusted numbers</em>.</h1>
+        <p>GST filing, income tax, TDS and full bookkeeping for small and mid-sized businesses — handled directly, reported on clearly.</p>
+        <div class="btn-row">
+          <a class="btn btn-gold" href="tel:+919830383777">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 3a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c1 .3 2 .5 3 .6a2 2 0 011.7 2z"/></svg>
+            Call
+          </a>
+          <a class="btn btn-ghost" style="border-color:rgba(255,255,255,0.35);color:#fff;" href="https://wa.me/919830383777" target="_blank" rel="noopener">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.6L3 20l1-5.4A8.5 8.5 0 1121 11.5z"/></svg>
+            WhatsApp
+          </a>
+        </div>
+      </div>
+
+      <div class="stat-grid">
+        <div class="stat-card"><div class="n">10+</div><div class="l">Years' Experience</div></div>
+        <div class="stat-card"><div class="n">GSTR-1/3B</div><div class="l">Filed &amp; Reconciled</div></div>
+        <div class="stat-card"><div class="n">Tally</div><div class="l">Prime &amp; ERP 9</div></div>
+        <div class="stat-card"><div class="n">ITR</div><div class="l">Filed &amp; E-Verified</div></div>
+      </div>
+
+      <div class="section-label">Quick actions</div>
+      <div class="mini-list">
+        <button class="mini-row" style="width:100%;text-align:left;border:1px solid var(--line);" onclick="goTo('services')">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18"/></svg></div>
+          <div><div class="t">Browse services</div><div class="s">GST, ITR, TDS, bookkeeping &amp; more</div></div>
+        </button>
+        <button class="mini-row" style="width:100%;text-align:left;border:1px solid var(--line);" onclick="goTo('enquire')">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg></div>
+          <div><div class="t">Send an enquiry</div><div class="s">Tell me what you need — free first call</div></div>
+        </button>
+        <button class="mini-row" style="width:100%;text-align:left;border:1px solid var(--line);" onclick="goTo('documents')">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg></div>
+          <div><div class="t">Share a document</div><div class="s">Send invoices, statements or notices</div></div>
+        </button>
+      </div>
+
+      <div class="section-label">Why work with me</div>
+      <ul class="why-strip">
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M4 12l5 5 11-11"/></svg></span>10+ years handling accounts for manufacturing and trading businesses.</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M4 12l5 5 11-11"/></svg></span>One person on your file throughout — not a rotating junior team.</li>
+        <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M4 12l5 5 11-11"/></svg></span>Transparent pricing discussed upfront — no surprises at filing time.</li>
+      </ul>
+
+      <p class="footer-note">Based in Kolkata, working with clients across the region.</p>
+    </section>
+
+    <!-- SERVICES -->
+    <section class="screen" data-screen="services">
+      <div class="eyebrow">Services</div>
+      <h2 style="font-size:1.3rem;margin-bottom:16px;">Everything your books and taxes need</h2>
+
+      <div class="svc-card">
+        <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12l2 2 4-4"/><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18"/></svg></div>
+        <h3>GST Registration &amp; Filing</h3>
+        <p>New GST registration, plus monthly GSTR-1 / GSTR-3B filing with input-output reconciliation.</p>
+      </div>
+      <div class="svc-card">
+        <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1z"/><path d="M9 9h6M9 13h6M9 17h3"/></svg></div>
+        <h3>Income Tax Return Filing</h3>
+        <p>E-filing for individuals and businesses, computed correctly and filed before the deadline.</p>
+      </div>
+      <div class="svc-card">
+        <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg></div>
+        <h3>TDS Compliance</h3>
+        <p>Deduction, deposit and return filing, so a TDS notice never catches you off guard.</p>
+      </div>
+      <div class="svc-card">
+        <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="3" width="16" height="18" rx="1.5"/><path d="M8 8h8M8 12h8M8 16h5"/></svg></div>
+        <h3>Bookkeeping in Tally</h3>
+        <p>Day-to-day accounting kept current in Tally Prime or ERP 9, ready for audit any day.</p>
+      </div>
+      <div class="svc-card">
+        <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 3l4 4-4 4"/><path d="M21 7H8a4 4 0 00-4 4v1"/><path d="M7 21l-4-4 4-4"/><path d="M3 17h13a4 4 0 004-4v-1"/></svg></div>
+        <h3>Reconciliation</h3>
+        <p>Bank, debtor and creditor reconciliation so your ledgers and your bank statement always agree.</p>
+      </div>
+      <div class="svc-card">
+        <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/></svg></div>
+        <h3>MIS &amp; Cash Flow Reports</h3>
+        <p>Monthly fund-flow and cash flow reports built for decision-making, not just filing.</p>
+      </div>
+      <div class="svc-card">
+        <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="6"/><path d="M14.5 14.5L20 20"/></svg></div>
+        <h3>Audit Support</h3>
+        <p>Preparation and hands-on support through statutory and stock audits.</p>
+      </div>
+      <div class="svc-card">
+        <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="12" rx="2"/><circle cx="12" cy="12" r="2.5"/><path d="M6 6v12M18 6v12"/></svg></div>
+        <h3>Credit &amp; Subsidy Paperwork</h3>
+        <p>Documentation for CC limit enhancement, credit renewals, and manufacturing subsidy claims.</p>
+      </div>
+      <div class="svc-card">
+        <div class="ic-badge"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l2.4 4.9 5.4.8-3.9 3.8.9 5.4L12 14.5l-4.8 2.4.9-5.4-3.9-3.8 5.4-.8z"/></svg></div>
+        <h3>Certificates &amp; Statutory Filings</h3>
+        <p>Applications for certificates and routine filings that keep a business fully compliant.</p>
+      </div>
+
+      <div class="section-label">Who I help</div>
+      <div class="chip-row">
+        <span class="chip">Manufacturing Units</span>
+        <span class="chip">Rice &amp; Food Mills</span>
+        <span class="chip">Trading Firms</span>
+        <span class="chip">Small &amp; Mid-Sized Companies</span>
+        <span class="chip">Individual Taxpayers</span>
+      </div>
+
+      <div class="section-label">Software &amp; tools</div>
+      <div class="chip-row">
+        <span class="chip">Tally Prime</span>
+        <span class="chip">Tally ERP 9</span>
+        <span class="chip">MS Excel</span>
+        <span class="chip">MS Office</span>
+      </div>
+    </section>
+
+    <!-- ENQUIRE -->
+    <section class="screen" data-screen="enquire">
+      <div class="eyebrow">Enquiry</div>
+      <h2 style="font-size:1.3rem;margin-bottom:6px;">Tell me what you need</h2>
+      <p style="color:var(--text-muted);font-size:0.86rem;margin:0 0 18px;line-height:1.6;">The first conversation is free, no obligation. Fill this in and send it straight to me on WhatsApp or email.</p>
+
+      <form id="enquiryForm">
+        <div class="field">
+          <label for="f-name">Your name</label>
+          <input type="text" id="f-name" required placeholder="Full name">
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone number</label>
+          <input type="tel" id="f-phone" required placeholder="10-digit mobile number">
+        </div>
+        <div class="field">
+          <label for="f-email">Email (optional)</label>
+          <input type="email" id="f-email" placeholder="you@example.com">
+        </div>
+        <div class="field">
+          <label for="f-service">What do you need help with?</label>
+          <select id="f-service">
+            <option>GST Registration &amp; Filing</option>
+            <option>Income Tax Return Filing</option>
+            <option>TDS Compliance</option>
+            <option>Bookkeeping in Tally</option>
+            <option>Reconciliation</option>
+            <option>MIS &amp; Cash Flow Reports</option>
+            <option>Audit Support</option>
+            <option>Credit &amp; Subsidy Paperwork</option>
+            <option>Certificates &amp; Statutory Filings</option>
+            <option>Something else</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-message">Message</label>
+          <textarea id="f-message" placeholder="Briefly describe your situation — e.g. overdue GST return, new registration, monthly bookkeeping..."></textarea>
+        </div>
+
+        <div class="btn-row">
+          <button type="button" class="btn btn-gold" id="submitEnquiry">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 2L11 13"/><path d="M22 2l-7 20-4-9-9-4z"/></svg>
+            <span id="submitEnquiryLabel">Submit enquiry</span>
+          </button>
+        </div>
+        <div class="status-msg" id="enquiryStatus"></div>
+        <p class="hint">This sends straight to Manoj's inbox automatically — no need to open another app.</p>
+
+        <div class="section-label" style="margin-top:22px;">Prefer to message directly?</div>
+        <div class="btn-row">
+          <button type="button" class="btn btn-ghost" id="sendWhatsapp">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.6L3 20l1-5.4A8.5 8.5 0 1121 11.5z"/></svg>
+            WhatsApp
+          </button>
+          <button type="button" class="btn btn-ghost" id="sendEmail">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg>
+            Email app
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- DOCUMENTS -->
+    <section class="screen" data-screen="documents">
+      <div class="eyebrow">Documents</div>
+      <h2 style="font-size:1.3rem;margin-bottom:6px;">Share a document</h2>
+      <p style="color:var(--text-muted);font-size:0.86rem;margin:0 0 18px;line-height:1.6;">Choose an invoice, statement, GST notice or return copy, then send it straight to me over WhatsApp, email or Drive.</p>
+
+      <label class="upload-box" id="uploadBox" for="fileInput">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>
+        <div class="t">Tap to choose a file</div>
+        <div class="s">PDF, JPG, PNG or Excel — up to 25MB</div>
+      </label>
+      <input type="file" id="fileInput" accept=".pdf,.jpg,.jpeg,.png,.xlsx,.xls,.csv,.doc,.docx" style="display:none;">
+
+      <div id="fileChipHolder"></div>
+
+      <div class="btn-row" style="margin-top:18px;">
+        <button type="button" class="btn btn-gold" id="shareFileBtn" disabled>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><path d="M8.6 13.5l6.8 4M15.4 6.5l-6.8 4"/></svg>
+          Share document
+        </button>
+      </div>
+      <div class="status-msg" id="docStatus"></div>
+
+      <div class="section-label">Prefer to send it yourself?</div>
+      <div class="mini-list">
+        <a class="mini-row" href="https://wa.me/919830383777" target="_blank" rel="noopener">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.6L3 20l1-5.4A8.5 8.5 0 1121 11.5z"/></svg></div>
+          <div><div class="t">WhatsApp: +91 98303 83777</div><div class="s">Attach the file directly in chat</div></div>
+        </a>
+        <a class="mini-row" href="mailto:manojjtiwarii@ymail.com?subject=Document%20from%20client">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+          <div><div class="t">manojjtiwarii@ymail.com</div><div class="s">Attach the file to a new email</div></div>
+        </a>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="screen" data-screen="contact">
+      <div class="eyebrow">Contact</div>
+      <h2 style="font-size:1.3rem;margin-bottom:16px;">Let's get your books in order</h2>
+
+      <div class="card">
+        <div class="contact-line">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 3a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c1 .3 2 .5 3 .6a2 2 0 011.7 2z"/></svg></div>
+          <div><div class="lbl">Phone</div><a href="tel:+919830383777">+91 98303 83777</a></div>
+        </div>
+        <div class="contact-line">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 7l9 6 9-6"/></svg></div>
+          <div><div class="lbl">Email</div><a href="mailto:manojjtiwarii@ymail.com">manojjtiwarii@ymail.com</a></div>
+        </div>
+        <div class="contact-line">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg></div>
+          <div><div class="lbl">Office</div><span class="val">Kolkata, West Bengal</span></div>
+        </div>
+        <div class="contact-line">
+          <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8"><path d="M21 11.5a8.5 8.5 0 01-12.4 7.6L3 20l1-5.4A8.5 8.5 0 1121 11.5z"/></svg></div>
+          <div><div class="lbl">WhatsApp</div><a href="https://wa.me/919830383777" target="_blank" rel="noopener">Message directly</a></div>
+        </div>
+      </div>
+
+      <div class="btn-row" style="margin-top:16px;">
+        <a class="btn btn-gold" href="tel:+919830383777">Call now</a>
+      </div>
+
+      <p class="footer-note">Whether it's a single overdue GST return or a full move to organised, monthly-reconciled books — the first conversation is free and there's no obligation.</p>
+      <p class="footer-note">Manoj Tiwari — GST &amp; Income Tax Consultant, Kolkata · © <span id="yr"></span></p>
+    </section>
+
+  </main>
+
+  <nav class="tabbar">
+    <button class="tab active" data-screen="home">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11l9-8 9 8"/><path d="M5 10v10h14V10"/></svg>
+      <span>Home</span>
+    </button>
+    <button class="tab" data-screen="services">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="17" rx="2"/><path d="M3 9h18"/><path d="M9 13h6"/></svg>
+      <span>Services</span>
+    </button>
+    <button class="tab" data-screen="enquire">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15a2 2 0 01-2 2H7l-4 4V5a2 2 0 012-2h14a2 2 0 012 2z"/></svg>
+      <span>Enquire</span>
+    </button>
+    <button class="tab" data-screen="documents">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/></svg>
+      <span>Docs</span>
+    </button>
+    <button class="tab" data-screen="contact">
+      <svg viewBox="0 0 24 24" fill="none" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 3a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c1 .3 2 .5 3 .6a2 2 0 011.7 2z"/></svg>
+      <span>Contact</span>
+    </button>
+  </nav>
+
+</div>
+
+<script>
+  document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // ---- Screen navigation ----
+  const screens = document.querySelectorAll('.screen');
+  const tabs = document.querySelectorAll('.tab');
+  function goTo(name){
+    screens.forEach(s => s.classList.toggle('active', s.dataset.screen === name));
+    tabs.forEach(t => t.classList.toggle('active', t.dataset.screen === name));
+    document.querySelector('main').scrollTo({top:0, behavior:'instant'});
+    window.scrollTo({top:0, behavior:'instant'});
+  }
+  tabs.forEach(t => t.addEventListener('click', () => goTo(t.dataset.screen)));
+
+  // ---- Install prompt (PWA) ----
+  let deferredPrompt = null;
+  const installBanner = document.getElementById('installBanner');
+  window.addEventListener('beforeinstallprompt', (e) => {
+    e.preventDefault();
+    deferredPrompt = e;
+    if (!localStorage.getItem('installDismissed')) installBanner.classList.add('show');
+  });
+  document.getElementById('installBtn').addEventListener('click', async () => {
+    if (!deferredPrompt) return;
+    deferredPrompt.prompt();
+    await deferredPrompt.userChoice;
+    deferredPrompt = null;
+    installBanner.classList.remove('show');
+  });
+  document.getElementById('installDismiss').addEventListener('click', () => {
+    installBanner.classList.remove('show');
+    localStorage.setItem('installDismissed', '1');
+  });
+
+  // ---- Register service worker ----
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('sw.js').catch(() => {});
+    });
+  }
+
+  // ---- Enquiry form ----
+  const FORMSPREE_ENDPOINT = 'https://formspree.io/f/meajdlzq';
+  const enquiryStatus = document.getElementById('enquiryStatus');
+
+  function getFields(){
+    return {
+      name: document.getElementById('f-name').value.trim(),
+      phone: document.getElementById('f-phone').value.trim(),
+      email: document.getElementById('f-email').value.trim(),
+      service: document.getElementById('f-service').value,
+      message: document.getElementById('f-message').value.trim()
+    };
+  }
+  function buildEnquiryText(f){
+    let text = `New enquiry from the app\n\nName: ${f.name}\nPhone: ${f.phone}`;
+    if (f.email) text += `\nEmail: ${f.email}`;
+    text += `\nService needed: ${f.service}`;
+    if (f.message) text += `\nMessage: ${f.message}`;
+    return text;
+  }
+  function showStatus(el, msg, ok){
+    el.textContent = msg;
+    el.className = 'status-msg show ' + (ok ? 'ok' : 'err');
+  }
+  function validate(f){
+    return f.name && f.phone;
+  }
+
+  const submitBtn = document.getElementById('submitEnquiry');
+  const submitLabel = document.getElementById('submitEnquiryLabel');
+  submitBtn.addEventListener('click', async () => {
+    const f = getFields();
+    if (!validate(f)){ showStatus(enquiryStatus, 'Please add your name and phone number first.', false); return; }
+
+    submitBtn.disabled = true;
+    submitLabel.textContent = 'Sending…';
+    try {
+      const res = await fetch(FORMSPREE_ENDPOINT, {
+        method: 'POST',
+        headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          name: f.name,
+          phone: f.phone,
+          email: f.email || 'Not provided',
+          service: f.service,
+          message: f.message || 'No additional message',
+          _subject: 'New enquiry — ' + f.service
+        })
+      });
+      if (res.ok){
+        showStatus(enquiryStatus, "Sent! Manoj will get this by email right away.", true);
+        document.getElementById('enquiryForm').reset();
+      } else {
+        showStatus(enquiryStatus, "Couldn't send automatically — try WhatsApp or email below instead.", false);
+      }
+    } catch (err) {
+      showStatus(enquiryStatus, "No connection — try WhatsApp or email below instead.", false);
+    } finally {
+      submitBtn.disabled = false;
+      submitLabel.textContent = 'Submit enquiry';
+    }
+  });
+
+  document.getElementById('sendWhatsapp').addEventListener('click', () => {
+    const f = getFields();
+    if (!validate(f)){ showStatus(enquiryStatus, 'Please add your name and phone number first.', false); return; }
+    window.open('https://wa.me/919830383777?text=' + encodeURIComponent(buildEnquiryText(f)), '_blank');
+  });
+  document.getElementById('sendEmail').addEventListener('click', () => {
+    const f = getFields();
+    if (!validate(f)){ showStatus(enquiryStatus, 'Please add your name and phone number first.', false); return; }
+    const subject = encodeURIComponent('Enquiry — ' + f.service);
+    window.location.href = 'mailto:manojjtiwarii@ymail.com?subject=' + subject + '&body=' + encodeURIComponent(buildEnquiryText(f));
+  });
+
+  // ---- Document share ----
+  const fileInput = document.getElementById('fileInput');
+  const fileChipHolder = document.getElementById('fileChipHolder');
+  const shareFileBtn = document.getElementById('shareFileBtn');
+  const docStatus = document.getElementById('docStatus');
+  let chosenFile = null;
+
+  fileInput.addEventListener('change', () => {
+    chosenFile = fileInput.files[0] || null;
+    fileChipHolder.innerHTML = '';
+    docStatus.className = 'status-msg';
+    if (chosenFile){
+      const chip = document.createElement('div');
+      chip.className = 'file-chip';
+      chip.innerHTML = `
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1z"/></svg></div>
+        <div class="name">${chosenFile.name}</div>
+        <button class="rm" aria-label="Remove file">✕</button>
+      `;
+      chip.querySelector('.rm').addEventListener('click', () => {
+        chosenFile = null;
+        fileInput.value = '';
+        fileChipHolder.innerHTML = '';
+        shareFileBtn.disabled = true;
+      });
+      fileChipHolder.appendChild(chip);
+      shareFileBtn.disabled = false;
+    } else {
+      shareFileBtn.disabled = true;
+    }
+  });
+
+  shareFileBtn.addEventListener('click', async () => {
+    if (!chosenFile) return;
+    const shareData = { files: [chosenFile], title: 'Document for Manoj Tiwari', text: 'Sending this document over — please review.' };
+    if (navigator.canShare && navigator.canShare(shareData)) {
+      try {
+        await navigator.share(shareData);
+        showStatus(docStatus, 'Share sheet opened — pick WhatsApp, email or Drive to send it.', true);
+      } catch (err) {
+        if (err.name !== 'AbortError') showStatus(docStatus, 'Could not open the share sheet. Use the WhatsApp or email links below instead.', false);
+      }
+    } else {
+      showStatus(docStatus, 'Your browser can\'t share files directly. Use the WhatsApp or email links below and attach the file there.', false);
+    }
+  });
+</script>
+
+</body>
+</html>
