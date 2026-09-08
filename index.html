@@ -31,8 +31,17 @@
     --text-dark:#101828;
     --text-muted:#5B6474;
     --line:#E2E5EC;
+    --surface:#FFFFFF;
     --safe-top: env(safe-area-inset-top, 0px);
     --safe-bottom: env(safe-area-inset-bottom, 0px);
+  }
+  html[data-theme="dark"]{
+    --bg:#0A0F1C;
+    --bg-alt:#111A2E;
+    --surface:#141D33;
+    --text-dark:#EDEFF4;
+    --text-muted:#98A2B8;
+    --line:#26314C;
   }
   *{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
   html,body{height:100%;}
@@ -40,6 +49,7 @@
     margin:0;background:var(--bg);color:var(--text-dark);font-family:'Inter',sans-serif;
     -webkit-font-smoothing:antialiased; overscroll-behavior-y:none;
     padding-top:var(--safe-top);
+    transition:background .2s ease, color .2s ease;
   }
   h1,h2,h3{font-family:'Playfair Display',serif;font-weight:600;margin:0;color:var(--text-dark);}
   a{color:inherit;text-decoration:none;}
@@ -109,7 +119,7 @@
     font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase;
     color:var(--gold-dim); font-weight:700; margin-bottom:10px;
   }
-  .card{background:var(--white); border:1px solid var(--line); border-radius:12px; padding:18px;}
+  .card{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px;}
   .btn{
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
     padding:13px 20px;font-size:0.9rem;font-weight:700;border-radius:9px;border:none;
@@ -138,7 +148,7 @@
   .hero-card .btn-row{margin-top:20px;}
 
   .stat-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:16px;}
-  .stat-card{background:var(--white);border:1px solid var(--line);border-radius:10px;padding:14px;text-align:center;}
+  .stat-card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:14px;text-align:center;}
   .stat-card .n{font-family:'Playfair Display',serif;font-weight:700;font-size:1.25rem;color:var(--navy-800);}
   .stat-card .l{font-size:0.7rem;color:var(--text-muted);margin-top:2px;}
 
@@ -147,7 +157,7 @@
 
   .mini-list{display:flex;flex-direction:column;gap:10px;}
   .mini-row{
-    display:flex;align-items:center;gap:12px;background:var(--white);border:1px solid var(--line);
+    display:flex;align-items:center;gap:12px;background:var(--surface);border:1px solid var(--line);
     border-radius:10px;padding:13px 14px;
   }
   .mini-row .ic{width:36px;height:36px;border-radius:9px;background:linear-gradient(135deg,var(--navy-800),var(--navy-700));display:flex;align-items:center;justify-content:center;flex-shrink:0;}
@@ -163,7 +173,7 @@
   .why-strip{list-style:none;padding:18px;margin:8px 0 0;}
 
   /* SERVICES */
-  .svc-card{background:var(--white);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;}
+  .svc-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;}
   .svc-card .ic-badge{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--navy-800),var(--navy-700));display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
   .svc-card .ic-badge svg{width:20px;height:20px;stroke:var(--gold-light);}
   .svc-card h3{font-size:1rem;margin-bottom:5px;}
@@ -177,7 +187,7 @@
   .field label{display:block;font-size:0.78rem;font-weight:600;color:var(--text-dark);margin-bottom:6px;}
   .field input, .field select, .field textarea{
     width:100%;border:1.5px solid var(--line);border-radius:9px;padding:12px 13px;
-    font-size:0.92rem;font-family:'Inter',sans-serif;background:var(--white);color:var(--text-dark);
+    font-size:0.92rem;font-family:'Inter',sans-serif;background:var(--surface);color:var(--text-dark);
   }
   .field input:focus, .field select:focus, .field textarea:focus{border-color:var(--gold);outline:none;}
   .field textarea{resize:vertical;min-height:90px;}
@@ -196,7 +206,7 @@
   .upload-box .t{font-size:0.88rem;font-weight:700;color:var(--navy-800);}
   .upload-box .s{font-size:0.78rem;color:var(--text-muted);margin-top:4px;}
   .file-chip{
-    display:flex;align-items:center;gap:10px;background:var(--white);border:1px solid var(--line);
+    display:flex;align-items:center;gap:10px;background:var(--surface);border:1px solid var(--line);
     border-radius:10px;padding:12px 14px;margin-top:12px;
   }
   .file-chip .ic{width:32px;height:32px;border-radius:8px;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
@@ -213,6 +223,53 @@
   .contact-line a, .contact-line span.val{display:block;margin-top:2px;font-size:0.94rem;font-weight:600;color:var(--text-dark);}
 
   .footer-note{text-align:center;color:var(--text-muted);font-size:0.76rem;margin-top:28px;line-height:1.6;}
+
+  /* THEME TOGGLE */
+  .topbar-actions{display:flex;align-items:center;gap:8px;}
+  .theme-btn{
+    width:38px;height:38px;border-radius:50%;background:rgba(255,255,255,0.08);
+    border:1px solid rgba(201,162,39,0.3); display:flex;align-items:center;justify-content:center;flex-shrink:0;
+  }
+  .theme-btn svg{width:17px;height:17px;stroke:var(--gold-light);}
+  .theme-btn .icon-moon{display:block;}
+  .theme-btn .icon-sun{display:none;}
+  html[data-theme="dark"] .theme-btn .icon-moon{display:none;}
+  html[data-theme="dark"] .theme-btn .icon-sun{display:block;}
+
+  /* TESTIMONIALS */
+  .testimonial-scroll{display:flex;gap:12px;overflow-x:auto;margin-top:8px;padding-bottom:4px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
+  .testimonial-scroll::-webkit-scrollbar{display:none;}
+  .t-card{
+    background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;
+    min-width:78%;scroll-snap-align:start;flex-shrink:0;
+  }
+  .t-card .stars{color:var(--gold);font-size:0.85rem;letter-spacing:2px;margin-bottom:8px;}
+  .t-card p{margin:0;font-size:0.85rem;line-height:1.55;color:var(--text-dark);}
+  .t-card .who{margin-top:10px;font-size:0.78rem;font-weight:700;color:var(--text-muted);}
+
+  /* PRICING */
+  .price-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;}
+  .price-card .name{font-size:0.88rem;font-weight:700;color:var(--text-dark);}
+  .price-card .sub{font-size:0.76rem;color:var(--text-muted);margin-top:2px;}
+  .price-card .amt{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--navy-800);white-space:nowrap;}
+  html[data-theme="dark"] .price-card .amt{color:var(--gold-light);}
+  html[data-theme="dark"] .stat-card .n{color:var(--gold-light);}
+  html[data-theme="dark"] .upload-box svg,
+  html[data-theme="dark"] .file-chip .ic svg,
+  html[data-theme="dark"] .contact-line .ic svg{stroke:var(--gold-light);}
+  html[data-theme="dark"] .upload-box .t{color:var(--gold-light);}
+  html[data-theme="dark"] .btn-ghost{border-color:var(--gold-dim);color:var(--gold-light);}
+
+  /* FAQ ACCORDION */
+  .faq-item{background:var(--surface);border:1px solid var(--line);border-radius:12px;margin-bottom:10px;overflow:hidden;}
+  .faq-item summary{
+    list-style:none;cursor:pointer;padding:15px 16px;font-size:0.88rem;font-weight:700;color:var(--text-dark);
+    display:flex;justify-content:space-between;align-items:center;gap:10px;
+  }
+  .faq-item summary::-webkit-details-marker{display:none;}
+  .faq-item summary .plus{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--gold-dim);transition:transform .2s ease;}
+  .faq-item[open] summary .plus{transform:rotate(45deg);}
+  .faq-item .a{padding:0 16px 16px;font-size:0.84rem;line-height:1.6;color:var(--text-muted);}
 </style>
 </head>
 <body>
@@ -224,9 +281,15 @@
       <b>Manoj <span>Tiwari</span></b>
       <small>GST &amp; Income Tax Consultant</small>
     </div>
-    <a class="call-btn" href="tel:+919830383777" aria-label="Call Manoj Tiwari">
-      <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 3a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c1 .3 2 .5 3 .6a2 2 0 011.7 2z"/></svg>
-    </a>
+    <div class="topbar-actions">
+      <button class="theme-btn" id="themeToggle" aria-label="Toggle dark mode">
+        <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.8A9 9 0 1111.2 3 7 7 0 0021 12.8z"/></svg>
+        <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+      </button>
+      <a class="call-btn" href="tel:+919830383777" aria-label="Call Manoj Tiwari">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.9v3a2 2 0 01-2.2 2 19.8 19.8 0 01-8.6-3.1 19.5 19.5 0 01-6-6 19.8 19.8 0 01-3.1-8.7A2 2 0 014.1 2h3a2 2 0 012 1.7c.1 1 .3 2 .6 3a2 2 0 01-.5 2.1L8 10a16 16 0 006 6l1.2-1.2a2 2 0 012.1-.5c1 .3 2 .5 3 .6a2 2 0 011.7 2z"/></svg>
+      </a>
+    </div>
   </header>
 
   <div class="install-banner" id="installBanner">
@@ -284,6 +347,25 @@
         <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M4 12l5 5 11-11"/></svg></span>One person on your file throughout — not a rotating junior team.</li>
         <li><span class="check"><svg viewBox="0 0 24 24" fill="none" stroke-width="3"><path d="M4 12l5 5 11-11"/></svg></span>Transparent pricing discussed upfront — no surprises at filing time.</li>
       </ul>
+
+      <div class="section-label">What clients say</div>
+      <div class="testimonial-scroll">
+        <div class="t-card">
+          <div class="stars">★★★★★</div>
+          <p>"Handles our monthly GST filing without a single reminder needed — everything's done before the deadline, every time."</p>
+          <div class="who">— Trading firm owner, Kolkata</div>
+        </div>
+        <div class="t-card">
+          <div class="stars">★★★★★</div>
+          <p>"Moved our books to Tally under his guidance and finally have numbers we can actually trust for decisions."</p>
+          <div class="who">— Manufacturing unit, Howrah</div>
+        </div>
+        <div class="t-card">
+          <div class="stars">★★★★★</div>
+          <p>"Sorted out two years of pending ITR filing and explained everything clearly along the way. Highly recommend."</p>
+          <div class="who">— Individual client</div>
+        </div>
+      </div>
 
       <p class="footer-note">Based in Kolkata, working with clients across the region.</p>
     </section>
@@ -355,6 +437,25 @@
         <span class="chip">MS Excel</span>
         <span class="chip">MS Office</span>
       </div>
+
+      <div class="section-label">Fee guide</div>
+      <div class="price-card">
+        <div><div class="name">GST Monthly Filing</div><div class="sub">GSTR-1 + GSTR-3B</div></div>
+        <div class="amt">From ₹1,500/mo</div>
+      </div>
+      <div class="price-card">
+        <div><div class="name">Income Tax Return</div><div class="sub">Individual, salaried/small business</div></div>
+        <div class="amt">From ₹2,000</div>
+      </div>
+      <div class="price-card">
+        <div><div class="name">TDS Return Filing</div><div class="sub">Per quarter</div></div>
+        <div class="amt">From ₹1,500</div>
+      </div>
+      <div class="price-card">
+        <div><div class="name">Bookkeeping (Tally)</div><div class="sub">Per month, volume-based</div></div>
+        <div class="amt">From ₹3,000/mo</div>
+      </div>
+      <p class="hint">Prices shown are indicative starting rates. Final fees depend on transaction volume and complexity, and are confirmed during your free first call.</p>
     </section>
 
     <!-- ENQUIRE -->
@@ -395,6 +496,28 @@
           <label for="f-message">Message</label>
           <textarea id="f-message" placeholder="Briefly describe your situation — e.g. overdue GST return, new registration, monthly bookkeeping..."></textarea>
         </div>
+
+        <div class="section-label" style="margin-top:4px;">Prefer a scheduled call? (optional)</div>
+        <div class="field" style="display:flex;gap:10px;">
+          <div style="flex:1;">
+            <label for="f-date">Preferred date</label>
+            <input type="date" id="f-date">
+          </div>
+          <div style="flex:1;">
+            <label for="f-time">Preferred time</label>
+            <select id="f-time">
+              <option value="">Any time</option>
+              <option>10:00 AM – 11:00 AM</option>
+              <option>11:00 AM – 12:00 PM</option>
+              <option>12:00 PM – 1:00 PM</option>
+              <option>2:00 PM – 3:00 PM</option>
+              <option>3:00 PM – 4:00 PM</option>
+              <option>4:00 PM – 5:00 PM</option>
+              <option>5:00 PM – 6:00 PM</option>
+            </select>
+          </div>
+        </div>
+        <p class="hint" style="margin-top:-6px;margin-bottom:14px;">This is a request, not a confirmed booking — Manoj will call or message to confirm the slot.</p>
 
         <div class="btn-row">
           <button type="button" class="btn btn-gold" id="submitEnquiry">
@@ -483,6 +606,28 @@
         <a class="btn btn-gold" href="tel:+919830383777">Call now</a>
       </div>
 
+      <div class="section-label">Frequently asked</div>
+      <details class="faq-item">
+        <summary>What documents do I need to get started?<span class="plus">+</span></summary>
+        <div class="a">Usually your PAN, Aadhaar, last filed return (if any), and bank statements or sales/purchase records for the period in question. Exact documents vary by service — this is confirmed on your free first call.</div>
+      </details>
+      <details class="faq-item">
+        <summary>How long does a GST or ITR filing take?<span class="plus">+</span></summary>
+        <div class="a">Once documents are shared, GST returns are typically filed within 2–3 working days, and income tax returns within 3–5 working days depending on complexity.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Do you work with businesses outside Kolkata?<span class="plus">+</span></summary>
+        <div class="a">Yes — everything from document sharing to filing can be done remotely over WhatsApp, email, and this app, so location isn't a barrier.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Is my financial data kept confidential?<span class="plus">+</span></summary>
+        <div class="a">Yes. Client records and financial data are handled confidentially and are never shared with third parties without your consent.</div>
+      </details>
+      <details class="faq-item">
+        <summary>Can I switch to you mid-year from another accountant?<span class="plus">+</span></summary>
+        <div class="a">Absolutely — this is common. Share your existing records and the current filing status, and the transition is handled smoothly from wherever you left off.</div>
+      </details>
+
       <p class="footer-note">Whether it's a single overdue GST return or a full move to organised, monthly-reconciled books — the first conversation is free and there's no obligation.</p>
       <p class="footer-note">Manoj Tiwari — GST &amp; Income Tax Consultant, Kolkata · © <span id="yr"></span></p>
     </section>
@@ -516,6 +661,20 @@
 
 <script>
   document.getElementById('yr').textContent = new Date().getFullYear();
+
+  // ---- Dark mode ----
+  (function initTheme(){
+    const saved = localStorage.getItem('theme');
+    const prefersDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+    const theme = saved || (prefersDark ? 'dark' : 'light');
+    document.documentElement.setAttribute('data-theme', theme);
+  })();
+  document.getElementById('themeToggle').addEventListener('click', () => {
+    const current = document.documentElement.getAttribute('data-theme') === 'dark' ? 'dark' : 'light';
+    const next = current === 'dark' ? 'light' : 'dark';
+    document.documentElement.setAttribute('data-theme', next);
+    localStorage.setItem('theme', next);
+  });
 
   // ---- Screen navigation ----
   const screens = document.querySelectorAll('.screen');
@@ -565,14 +724,24 @@
       phone: document.getElementById('f-phone').value.trim(),
       email: document.getElementById('f-email').value.trim(),
       service: document.getElementById('f-service').value,
-      message: document.getElementById('f-message').value.trim()
+      message: document.getElementById('f-message').value.trim(),
+      date: document.getElementById('f-date').value,
+      time: document.getElementById('f-time').value
     };
+  }
+  function formatDate(iso){
+    if (!iso) return '';
+    const d = new Date(iso + 'T00:00:00');
+    return d.toLocaleDateString('en-IN', { weekday:'short', day:'numeric', month:'short', year:'numeric' });
   }
   function buildEnquiryText(f){
     let text = `New enquiry from the app\n\nName: ${f.name}\nPhone: ${f.phone}`;
     if (f.email) text += `\nEmail: ${f.email}`;
     text += `\nService needed: ${f.service}`;
     if (f.message) text += `\nMessage: ${f.message}`;
+    if (f.date || f.time){
+      text += `\n\nRequested call: ${f.date ? formatDate(f.date) : 'Date flexible'}${f.time ? ' — ' + f.time : ''}`;
+    }
     return text;
   }
   function showStatus(el, msg, ok){
@@ -601,6 +770,7 @@
           email: f.email || 'Not provided',
           service: f.service,
           message: f.message || 'No additional message',
+          requested_call: (f.date || f.time) ? `${f.date ? formatDate(f.date) : 'Date flexible'}${f.time ? ' — ' + f.time : ''}` : 'Not requested',
           _subject: 'New enquiry — ' + f.service
         })
       });
