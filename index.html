@@ -115,9 +115,10 @@
 
   /* SHARED */
   .eyebrow{
-    display:inline-flex; align-items:center; gap:8px;
-    font-size:0.72rem; letter-spacing:0.1em; text-transform:uppercase;
-    color:var(--gold-dim); font-weight:700; margin-bottom:10px;
+    display:inline-flex; align-items:baseline; gap:8px;
+    font-family:'Playfair Display',serif; font-style:italic; font-weight:600;
+    font-size:0.86rem; color:var(--gold-dim); margin-bottom:12px;
+    border-bottom:1.5px solid var(--gold-dim); padding-bottom:6px;
   }
   .card{background:var(--surface); border:1px solid var(--line); border-radius:12px; padding:18px;}
   .btn{
@@ -141,7 +142,13 @@
     background:linear-gradient(155deg, var(--navy-950), var(--navy-800));
     border-radius:16px; padding:26px 22px; position:relative; overflow:hidden;
   }
-  .hero-card .eyebrow{color:var(--gold-light);}
+  .hero-card::before{
+    content:"";position:absolute;inset:0;pointer-events:none;
+    background-image:repeating-linear-gradient(to bottom, transparent 0 27px, rgba(201,162,39,0.08) 27px 28px);
+    mask-image:linear-gradient(to bottom, transparent, black 40%, black 80%, transparent);
+  }
+  .hero-card > *{position:relative;}
+  .hero-card .eyebrow{color:var(--gold-light);border-bottom-color:rgba(231,199,102,0.5);}
   .hero-card h1{color:var(--white);font-size:1.55rem;line-height:1.3;max-width:20ch;}
   .hero-card h1 em{color:var(--gold-light);font-style:normal;}
   .hero-card p{margin-top:12px;color:rgba(255,255,255,0.7);font-size:0.9rem;line-height:1.6;}
@@ -152,7 +159,11 @@
   .stat-card .n{font-family:'Playfair Display',serif;font-weight:700;font-size:1.25rem;color:var(--navy-800);}
   .stat-card .l{font-size:0.7rem;color:var(--text-muted);margin-top:2px;}
 
-  .section-label{font-size:0.72rem;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--gold-dim);margin:26px 0 12px;}
+  .section-label{
+    font-family:'Playfair Display',serif; font-style:italic; font-weight:600;
+    font-size:0.92rem; color:var(--gold-dim); margin:28px 0 12px;
+    border-left:3px solid var(--gold); padding-left:10px; line-height:1.3;
+  }
   .section-label:first-of-type{margin-top:22px;}
 
   .mini-list{display:flex;flex-direction:column;gap:10px;}
@@ -173,7 +184,7 @@
   .why-strip{list-style:none;padding:18px;margin:8px 0 0;}
 
   /* SERVICES */
-  .svc-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;}
+  .svc-card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:4px 12px 12px 4px;padding:16px;margin-bottom:12px;}
   .svc-card .ic-badge{width:42px;height:42px;border-radius:10px;background:linear-gradient(135deg,var(--navy-800),var(--navy-700));display:flex;align-items:center;justify-content:center;margin-bottom:10px;}
   .svc-card .ic-badge svg{width:20px;height:20px;stroke:var(--gold-light);}
   .svc-card h3{font-size:1rem;margin-bottom:5px;}
@@ -240,15 +251,15 @@
   .testimonial-scroll{display:flex;gap:12px;overflow-x:auto;margin-top:8px;padding-bottom:4px;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;}
   .testimonial-scroll::-webkit-scrollbar{display:none;}
   .t-card{
-    background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;
+    background:var(--surface);border:1px solid var(--line);border-top:3px solid var(--gold);border-radius:4px 4px 12px 12px;padding:18px 16px 16px;
     min-width:78%;scroll-snap-align:start;flex-shrink:0;
   }
-  .t-card .stars{color:var(--gold);font-size:0.85rem;letter-spacing:2px;margin-bottom:8px;}
-  .t-card p{margin:0;font-size:0.85rem;line-height:1.55;color:var(--text-dark);}
-  .t-card .who{margin-top:10px;font-size:0.78rem;font-weight:700;color:var(--text-muted);}
+  .t-card .quote-mark{font-family:'Playfair Display',serif;font-size:2.2rem;line-height:0.5;color:var(--gold);display:block;margin-bottom:10px;}
+  .t-card p{margin:0;font-size:0.85rem;line-height:1.55;color:var(--text-dark);font-family:'Playfair Display',serif;}
+  .t-card .who{margin-top:12px;font-size:0.76rem;font-weight:700;color:var(--text-muted);font-family:'Inter',sans-serif;}
 
   /* PRICING */
-  .price-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;}
+  .price-card{background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:4px 12px 12px 4px;padding:16px;margin-bottom:10px;display:flex;justify-content:space-between;align-items:center;gap:10px;}
   .price-card .name{font-size:0.88rem;font-weight:700;color:var(--text-dark);}
   .price-card .sub{font-size:0.76rem;color:var(--text-muted);margin-top:2px;}
   .price-card .amt{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--navy-800);white-space:nowrap;}
@@ -351,17 +362,17 @@
       <div class="section-label">What clients say</div>
       <div class="testimonial-scroll">
         <div class="t-card">
-          <div class="stars">★★★★★</div>
+          <span class="quote-mark">&ldquo;</span>
           <p>"Handles our monthly GST filing without a single reminder needed — everything's done before the deadline, every time."</p>
           <div class="who">— Trading firm owner, Kolkata</div>
         </div>
         <div class="t-card">
-          <div class="stars">★★★★★</div>
+          <span class="quote-mark">&ldquo;</span>
           <p>"Moved our books to Tally under his guidance and finally have numbers we can actually trust for decisions."</p>
           <div class="who">— Manufacturing unit, Howrah</div>
         </div>
         <div class="t-card">
-          <div class="stars">★★★★★</div>
+          <span class="quote-mark">&ldquo;</span>
           <p>"Sorted out two years of pending ITR filing and explained everything clearly along the way. Highly recommend."</p>
           <div class="who">— Individual client</div>
         </div>
