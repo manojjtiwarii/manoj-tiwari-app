@@ -281,6 +281,19 @@
   .faq-item summary .plus{flex-shrink:0;width:20px;height:20px;border-radius:50%;background:var(--bg-alt);display:flex;align-items:center;justify-content:center;font-size:1rem;color:var(--gold-dim);transition:transform .2s ease;}
   .faq-item[open] summary .plus{transform:rotate(45deg);}
   .faq-item .a{padding:0 16px 16px;font-size:0.84rem;line-height:1.6;color:var(--text-muted);}
+
+  /* PAY FEES */
+  .pay-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px;text-align:center;}
+  .pay-card .qr-wrap{background:#FFFFFF;border-radius:10px;padding:12px;display:inline-block;margin:12px auto;}
+  .pay-card .qr-wrap img{display:block;width:150px;height:150px;}
+  .upi-chip{
+    display:flex;align-items:center;justify-content:center;gap:10px;background:var(--bg-alt);
+    border:1px solid var(--line);border-radius:20px;padding:9px 16px;font-size:0.85rem;font-weight:700;
+    color:var(--text-dark);margin-top:4px;
+  }
+  .upi-chip button{background:none;border:none;color:var(--gold-dim);font-size:0.76rem;font-weight:700;padding:2px 6px;}
+  .pay-amount-row{display:flex;gap:10px;margin-top:16px;}
+  .pay-amount-row input{flex:1;}
 </style>
 </head>
 <body>
@@ -617,6 +630,26 @@
         <a class="btn btn-gold" href="tel:+919830383777">Call now</a>
       </div>
 
+      <div class="section-label">Pay fees</div>
+      <div class="pay-card">
+        <p style="margin:0 0 4px;font-size:0.85rem;color:var(--text-muted);">Pay securely via any UPI app — GPay, PhonePe, Paytm, or your bank app.</p>
+        <div class="qr-wrap"><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAXIAAAFyCAIAAABnRsZeAAAHuUlEQVR4nO3cMXIjtxpG0adXE3oP3oiX7414D87b6UQoe3D/Apo6J6dENqVbCL7C1/M8/wPo/P/0GwA+jawAMVkBYrICxGQFiMkKEJMVICYrQExWgJisADFZAWKyAsRkBYjJChCTFSAmK0BMVoCYrAAxWQFiP3Ze/Nvvf1Tv4xJ///XnL792/TTWP3nutWs7n/eUOz+v/4WfOa0AMVkBYrICxGQFiMkKEJMVICYrQExWgJisALGtle3anQvOnTXkzhZ27dRr55zaDd/pjd/RDqcVICYrQExWgJisADFZAWKyAsRkBYjJChCTFSA2uLJdm1v4vXHReOqm27lnNbcb/rwN7uf9LzitADFZAWKyAsRkBYjJChCTFSAmK0BMVoCYrACxYytbfnbncnRuoXtqV3pqc/zdOK0AMVkBYrICxGQFiMkKEJMVICYrQExWgJisADEr2//g1P2sc3e7zq1d33j/LhWnFSAmK0BMVoCYrAAxWQFisgLEZAWIyQoQkxUgdmxl+3lbyTcuVtfeuIW9812t3fmudjitADFZAWKyAsRkBYjJChCTFSAmK0BMVoCYrACxwZXt3Or0lFP3s849yVPv+c5d6dx7/rz/hTWnFSAmK0BMVoCYrAAxWQFisgLEZAWIyQoQkxUgtrWyvXMr+Xl2nvOd+93P890+75rTChCTFSAmK0BMVoCYrAAxWQFisgLEZAWIyQoQ+3qe55df/N3uK33jjaRz38KdN93ufEdz3/6d9+DO/W04rQAxWQFisgLEZAWIyQoQkxUgJitATFaAmKwAscG7bO/cs965o51bYX7eNnTOd9v+znFaAWKyAsRkBYjJChCTFSAmK0BMVoCYrAAxWQFix+6y/bxF4xvXkHPuvEN3zp1r5lNPw2kFiMkKEJMVICYrQExWgJisADFZAWKyAsRkBYht3WW7NrcrvXOhe2pzfOfO8o1PY+5J3nkr8NzndVoBYrICxGQFiMkKEJMVICYrQExWgJisADFZAWKDd9nuuHOVuHbnXbZ33il7ahl8543Cdz6rHU4rQExWgJisADFZAWKyAsRkBYjJChCTFSAmK0Bs6y7buV3pzrLwzrts1+5c6K7due+c+xbmfu+cU0/DaQWIyQoQkxUgJitATFaAmKwAMVkBYrICxGQFiG2tbHfs7ErnblFds8L82dwNrHd+R99t273DaQWIyQoQkxUgJitATFaAmKwAMVkBYrICxGQFiH09zzP0o+d2pXP7zrU7l7JzW8m5J/lGd/49z3GXLXARWQFisgLEZAWIyQoQkxUgJitATFaAmKwAsa2V7Z33aN65hnzja3eculP2u92he+f/oNMKEJMVICYrQExWgJisADFZAWKyAsRkBYjJChD7sfPiU7eZzi0L77ytdscbd7Q7Tm1wT61dT61715xWgJisADFZAWKyAsRkBYjJChCTFSAmK0BMVoDY1sp27c47Vk/dk3rKnc95zs7vfePfxp1/k04rQExWgJisADFZAWKyAsRkBYjJChCTFSAmK0Bsa2V7582vd65dTy0471xhrt15t+up1fjcdzT3k51WgJisADFZAWKyAsRkBYjJChCTFSAmK0BMVoDY1/M8R37x3EL31OrUT/73P3nHG1fFp57GKU4rQExWgJisADFZAWKyAsRkBYjJChCTFSAmK0Ds0rtsTy1HP+923jtXp2t3fkdvfJKn3rPTChCTFSAmK0BMVoCYrAAxWQFisgLEZAWIyQoQ21rZrr1xK7njjXes7th5knPPauddvXGffecu3GkFiMkKEJMVICYrQExWgJisADFZAWKyAsRkBYgNrmx37Owd37hYXZtb6J5ays59orlv/40b3LW5b8FpBYjJChCTFSAmK0BMVoCYrAAxWQFisgLEZAWIfT3P88svPrXRfKM7P++p+3fn/nLmfu+d5p6GlS1wEVkBYrICxGQFiMkKEJMVICYrQExWgJisALGtle13c+dGc24pe+fnXZv7RHfekrvzk9esbIGLyAoQkxUgJitATFaAmKwAMVkBYrICxGQFiP3YefEbV5hr62XhnXvWO3e0pzapp8wtZefMvSunFSAmK0BMVoCYrAAxWQFisgLEZAWIyQoQkxUgtrWyXbtzWXjnrvTO+0rntr877vy7OvWu7lz3Oq0AMVkBYrICxGQFiMkKEJMVICYrQExWgJisALHBle3ad1thnvq8cyvMuWXw3De486zuvEP31Le/5rQCxGQFiMkKEJMVICYrQExWgJisADFZAWKyAsSOrWw/z6k7ZU/taOdWp6ee5J330Z567c7TcFoBYrICxGQFiMkKEJMVICYrQExWgJisADFZAWJWtplTm9S1ucXqKafu391x5z24c5xWgJisADFZAWKyAsRkBYjJChCTFSAmK0BMVoDYsZXtnQvOOXOf99TtrTuvfeM9uKe88RM5rQAxWQFisgLEZAWIyQoQkxUgJitATFaAmKwAscGV7efd3zm3WD1l5xPtvPbUs5r7RKdeu3bqL9ZpBYjJChCTFSAmK0BMVoCYrAAxWQFisgLEZAWIfT3Pc/o9AB/FaQWIyQoQkxUgJitATFaAmKwAMVkBYrICxGQFiMkKEJMVICYrQExWgJisADFZAWKyAsRkBYjJChCTFSD2D4xb1nTg/24PAAAAAElFTkSuQmCC" alt="UPI QR code"></div>
+        <div class="upi-chip">
+          <span id="upiIdText">manojjtiwarii@ybl</span>
+          <button type="button" id="copyUpiBtn">Copy</button>
+        </div>
+        <div class="pay-amount-row">
+          <input type="number" id="payAmount" placeholder="Amount (₹)" min="1">
+        </div>
+        <div class="btn-row">
+          <button type="button" class="btn btn-gold" id="payUpiBtn">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="5" width="20" height="14" rx="2"/><path d="M2 10h20"/></svg>
+            Pay via UPI app
+          </button>
+        </div>
+        <p class="hint">On a phone, this opens your UPI app directly. On a laptop, scan the QR code above with your phone's UPI app instead.</p>
+      </div>
+
       <div class="section-label">Frequently asked</div>
       <details class="faq-item">
         <summary>What documents do I need to get started?<span class="plus">+</span></summary>
@@ -685,6 +718,25 @@
     const next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
+  });
+
+  // ---- UPI payment ----
+  const UPI_ID = 'manojjtiwarii@ybl';
+  const UPI_NAME = 'Manoj Tiwari';
+  document.getElementById('copyUpiBtn').addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(UPI_ID);
+      const btn = document.getElementById('copyUpiBtn');
+      const original = btn.textContent;
+      btn.textContent = 'Copied!';
+      setTimeout(() => { btn.textContent = original; }, 1500);
+    } catch (e) { /* clipboard unavailable, ignore */ }
+  });
+  document.getElementById('payUpiBtn').addEventListener('click', () => {
+    const amount = document.getElementById('payAmount').value.trim();
+    let uri = `upi://pay?pa=${encodeURIComponent(UPI_ID)}&pn=${encodeURIComponent(UPI_NAME)}&cu=INR`;
+    if (amount) uri += `&am=${encodeURIComponent(amount)}`;
+    window.location.href = uri;
   });
 
   // ---- Screen navigation ----
