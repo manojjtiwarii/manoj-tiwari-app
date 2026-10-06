@@ -294,6 +294,63 @@
   .upi-chip button{background:none;border:none;color:var(--gold-dim);font-size:0.76rem;font-weight:700;padding:2px 6px;}
   .pay-amount-row{display:flex;gap:10px;margin-top:16px;}
   .pay-amount-row input{flex:1;}
+
+  /* NOTICE BANNER */
+  .notice-banner{
+    display:flex;align-items:flex-start;gap:12px;background:linear-gradient(135deg,#7A2E2E,#5A1F1F);
+    border:1px solid rgba(255,255,255,0.12);border-radius:12px;padding:15px 16px;margin-top:16px;
+  }
+  .notice-banner .ic{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,0.12);display:flex;align-items:center;justify-content:center;flex-shrink:0;}
+  .notice-banner .ic svg{width:18px;height:18px;stroke:#F3C9C9;}
+  .notice-banner .t{color:#fff;font-size:0.88rem;font-weight:700;}
+  .notice-banner .s{color:rgba(255,255,255,0.75);font-size:0.78rem;margin-top:2px;line-height:1.5;}
+  .notice-banner a.btn{margin-top:10px;width:auto;padding:9px 16px;font-size:0.8rem;background:#fff;color:#5A1F1F;display:inline-flex;}
+
+  /* HOW IT WORKS */
+  .how-row{display:flex;flex-direction:column;gap:0;}
+  .how-step{display:flex;gap:14px;padding:14px 0;position:relative;}
+  .how-step:not(:last-child)::before{content:"";position:absolute;left:17px;top:42px;bottom:-4px;width:2px;background:var(--line);}
+  .how-step .num{
+    width:34px;height:34px;border-radius:50%;background:var(--navy-900);color:var(--gold-light);
+    display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;font-weight:700;font-size:0.95rem;flex-shrink:0;z-index:1;
+  }
+  .how-step .t{font-size:0.88rem;font-weight:700;color:var(--text-dark);}
+  .how-step .s{font-size:0.8rem;color:var(--text-muted);margin-top:2px;line-height:1.5;}
+
+  /* TIPS */
+  .tip-card{
+    background:var(--surface);border:1px solid var(--line);border-left:3px solid var(--gold);border-radius:4px 12px 12px 4px;padding:16px;
+    min-width:78%;scroll-snap-align:start;flex-shrink:0;
+  }
+  .tip-card .tip-tag{font-size:0.7rem;font-weight:700;letter-spacing:0.04em;color:var(--gold-dim);margin-bottom:6px;}
+  .tip-card p{margin:0;font-size:0.84rem;line-height:1.55;color:var(--text-dark);}
+
+  /* REFERRAL BANNER */
+  .referral-banner{
+    background:linear-gradient(135deg,var(--gold-dim),var(--gold));border-radius:12px;padding:18px 16px;margin-top:16px;
+  }
+  .referral-banner .t{font-family:'Playfair Display',serif;font-weight:700;font-size:1.05rem;color:var(--navy-950);}
+  .referral-banner .s{font-size:0.82rem;color:rgba(8,20,40,0.75);margin-top:4px;line-height:1.5;}
+  .referral-banner .btn{margin-top:12px;background:var(--navy-950);color:#fff;width:auto;padding:10px 18px;display:inline-flex;font-size:0.82rem;}
+
+  /* CALCULATORS */
+  .calc-card{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:16px;margin-bottom:12px;}
+  .calc-card h4{font-size:0.92rem;margin-bottom:12px;}
+  .calc-row{display:flex;gap:10px;align-items:flex-end;margin-bottom:10px;}
+  .calc-row .field{flex:1;margin-bottom:0;}
+  .calc-row select{min-width:90px;}
+  .calc-result{margin-top:10px;background:var(--bg-alt);border-radius:9px;padding:12px;font-size:0.84rem;line-height:1.6;}
+  .calc-result b{color:var(--navy-800);}
+  html[data-theme="dark"] .calc-result b{color:var(--gold-light);}
+  .regime-compare{display:flex;gap:10px;margin-top:10px;}
+  .regime-box{flex:1;background:var(--bg-alt);border-radius:9px;padding:12px;text-align:center;}
+  .regime-box.win{border:1.5px solid var(--gold);}
+  .regime-box .lbl{font-size:0.72rem;color:var(--text-muted);font-weight:700;text-transform:uppercase;letter-spacing:0.04em;}
+  .regime-box .amt{font-family:'Playfair Display',serif;font-weight:700;font-size:1.1rem;margin-top:4px;color:var(--text-dark);}
+
+  /* GBP / RATE US */
+  .gbp-row{display:flex;gap:10px;margin-top:10px;}
+  .gbp-row .btn{flex:1;}
 </style>
 </head>
 <body>
@@ -342,11 +399,40 @@
         </div>
       </div>
 
+      <div class="notice-banner">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M10.3 3.9L1.8 18a2 2 0 001.7 3h17a2 2 0 001.7-3L13.7 3.9a2 2 0 00-3.4 0z"/><path d="M12 9v4"/><path d="M12 17h.01"/></svg></div>
+        <div>
+          <div class="t">Got a GST or income tax notice?</div>
+          <div class="s">Notices are time-bound — send it over today and I'll tell you plainly what it means and what to do.</div>
+          <a class="btn" href="https://wa.me/919830383777?text=Hi%2C%20I%27ve%20received%20a%20notice%20and%20need%20help%20understanding%20it." target="_blank" rel="noopener">Send it on WhatsApp</a>
+        </div>
+      </div>
+
       <div class="stat-grid">
         <div class="stat-card"><div class="n">10+</div><div class="l">Years' Experience</div></div>
         <div class="stat-card"><div class="n">GSTR-1/3B</div><div class="l">Filed &amp; Reconciled</div></div>
         <div class="stat-card"><div class="n">Tally</div><div class="l">Prime &amp; ERP 9</div></div>
         <div class="stat-card"><div class="n">ITR</div><div class="l">Filed &amp; E-Verified</div></div>
+      </div>
+
+      <div class="section-label">How it works</div>
+      <div class="how-row">
+        <div class="how-step">
+          <div class="num">1</div>
+          <div><div class="t">Share documents</div><div class="s">Send what you have via the Documents tab, WhatsApp, or email.</div></div>
+        </div>
+        <div class="how-step">
+          <div class="num">2</div>
+          <div><div class="t">I prepare</div><div class="s">Returns, reconciliations, or books are prepared and checked.</div></div>
+        </div>
+        <div class="how-step">
+          <div class="num">3</div>
+          <div><div class="t">You approve</div><div class="s">I walk you through the numbers before anything is filed.</div></div>
+        </div>
+        <div class="how-step">
+          <div class="num">4</div>
+          <div><div class="t">Filed, on time</div><div class="s">Submitted before the deadline, with a copy sent to you.</div></div>
+        </div>
       </div>
 
       <div class="section-label">Quick actions</div>
@@ -389,6 +475,33 @@
           <p>"Sorted out two years of pending ITR filing and explained everything clearly along the way. Highly recommend."</p>
           <div class="who">— Individual client</div>
         </div>
+      </div>
+
+      <div class="section-label">Tips &amp; due dates</div>
+      <div class="testimonial-scroll">
+        <div class="tip-card">
+          <div class="tip-tag">DUE DATE</div>
+          <p>GSTR-1 is due on the 11th and GSTR-3B on the 20th of every month. Missing either attracts late fees even with zero tax due.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-tag">COMMON MISTAKE</div>
+          <p>Claiming input tax credit without matching it to your supplier's GSTR-1 is one of the most common reasons for a GST notice.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-tag">TDS</div>
+          <p>TDS deducted in a month must be deposited by the 7th of the next month. Interest starts accruing from day one of delay.</p>
+        </div>
+        <div class="tip-card">
+          <div class="tip-tag">ITR</div>
+          <p>Choosing between the old and new tax regime? Use the calculator in the Services tab before you decide — it can change your refund.</p>
+        </div>
+      </div>
+      <p class="hint" style="margin-top:8px;">Screenshot and share any of these on your WhatsApp Status — it's a simple way to remind your contacts a deadline is near.</p>
+
+      <div class="referral-banner">
+        <div class="t">Know a business that needs this?</div>
+        <div class="s">If you've been happy with the service, I'd be grateful if you shared my contact with them. That's the best support this practice could ask for.</div>
+        <a class="btn" href="https://wa.me/919830383777?text=Hi%2C%20I%27d%20like%20to%20refer%20someone%20for%20your%20services." target="_blank" rel="noopener">Refer on WhatsApp</a>
       </div>
 
       <p class="footer-note">Based in Kolkata, working with clients across the region.</p>
@@ -480,6 +593,55 @@
         <div class="amt">From ₹3,000/mo</div>
       </div>
       <p class="hint">Prices shown are indicative starting rates. Final fees depend on transaction volume and complexity, and are confirmed during your free first call.</p>
+
+      <div class="section-label">Document checklists</div>
+      <details class="faq-item">
+        <summary>GST monthly filing<span class="plus">+</span></summary>
+        <div class="a">Sales register for the month &middot; Purchase register / purchase bills &middot; Bank statement &middot; Previous month's GSTR-3B (for first-time clients) &middot; GST login credentials or EVC access</div>
+      </details>
+      <details class="faq-item">
+        <summary>Income tax return (individual)<span class="plus">+</span></summary>
+        <div class="a">PAN &amp; Aadhaar &middot; Form 16 (if salaried) &middot; Bank statements for the financial year &middot; Investment proofs (80C, 80D, etc.) &middot; Last year's filed ITR, if available</div>
+      </details>
+      <details class="faq-item">
+        <summary>TDS return filing<span class="plus">+</span></summary>
+        <div class="a">TAN details &middot; Challan copies for tax deposited &middot; PAN of all deductees &middot; Previous quarter's TDS return (if applicable)</div>
+      </details>
+      <details class="faq-item">
+        <summary>Bookkeeping in Tally<span class="plus">+</span></summary>
+        <div class="a">Sales &amp; purchase invoices &middot; Bank statements &middot; Expense receipts/vouchers &middot; Opening balances (for a new engagement) &middot; Existing Tally backup, if you have one</div>
+      </details>
+      <p class="hint">Not sure which apply to you? Send a message on the Enquire tab and I'll confirm exactly what's needed for your situation.</p>
+
+      <div class="section-label">Quick calculators</div>
+      <div class="calc-card">
+        <h4>GST calculator</h4>
+        <div class="calc-row">
+          <div class="field"><label for="calc-amount">Amount (₹)</label><input type="number" id="calc-amount" placeholder="e.g. 10000" min="0"></div>
+          <div class="field"><label for="calc-rate">GST rate</label>
+            <select id="calc-rate">
+              <option value="5">5%</option>
+              <option value="12">12%</option>
+              <option value="18" selected>18%</option>
+              <option value="28">28%</option>
+            </select>
+          </div>
+        </div>
+        <div class="btn-row" style="margin-top:0;">
+          <button type="button" class="btn btn-ghost" id="calc-add" style="flex:1;">Add GST</button>
+          <button type="button" class="btn btn-ghost" id="calc-remove" style="flex:1;">Remove GST</button>
+        </div>
+        <div class="calc-result" id="calc-gst-result">Enter an amount to see the GST breakup.</div>
+      </div>
+
+      <div class="calc-card">
+        <h4>Old vs new tax regime (quick estimate)</h4>
+        <div class="field"><label for="calc-income">Annual taxable income (₹)</label><input type="number" id="calc-income" placeholder="e.g. 900000" min="0"></div>
+        <div class="field"><label for="calc-deductions">Deductions you claim under old regime (80C, 80D, HRA, etc.) (₹)</label><input type="number" id="calc-deductions" placeholder="e.g. 150000" min="0"></div>
+        <button type="button" class="btn btn-gold" id="calc-regime-btn">Compare regimes</button>
+        <div id="calc-regime-result"></div>
+        <p class="hint">This is a simplified estimate for individuals under 60, based on current slabs, for quick comparison only — it ignores HRA, marginal relief, and other exemptions. Rates can change with each Budget, so confirm with an actual computation, which I'll do on your free first call.</p>
+      </div>
     </section>
 
     <!-- ENQUIRE -->
@@ -630,6 +792,13 @@
         <a class="btn btn-gold" href="tel:+919830383777">Call now</a>
       </div>
 
+      <div class="section-label">Find &amp; rate us on Google</div>
+      <div class="gbp-row">
+        <a class="btn btn-navy" href="https://www.google.com/search?q=Manoj+Tiwari+Accounting+Services+Kolkata" target="_blank" rel="noopener">View on Google</a>
+        <a class="btn btn-ghost" href="https://www.google.com/search?q=Manoj+Tiwari+Accounting+Services+Kolkata" target="_blank" rel="noopener">Rate us</a>
+      </div>
+      <p class="hint">Already a client? A quick Google review helps other business owners in Kolkata find and trust this practice.</p>
+
       <div class="section-label">Pay fees</div>
       <div class="pay-card">
         <p style="margin:0 0 4px;font-size:0.85rem;color:var(--text-muted);">Pay securely via any UPI app — GPay, PhonePe, Paytm, or your bank app.</p>
@@ -718,6 +887,76 @@
     const next = current === 'dark' ? 'light' : 'dark';
     document.documentElement.setAttribute('data-theme', next);
     localStorage.setItem('theme', next);
+  });
+
+  // ---- Calculators ----
+  function fmtINR(n){
+    return '₹' + Math.round(n).toLocaleString('en-IN');
+  }
+  const calcAmount = document.getElementById('calc-amount');
+  const calcRate = document.getElementById('calc-rate');
+  const calcGstResult = document.getElementById('calc-gst-result');
+  function runGstCalc(mode){
+    const amt = parseFloat(calcAmount.value);
+    const rate = parseFloat(calcRate.value);
+    if (!amt || amt <= 0){ calcGstResult.textContent = 'Enter a valid amount to see the GST breakup.'; return; }
+    if (mode === 'add'){
+      const gst = amt * rate / 100;
+      const total = amt + gst;
+      calcGstResult.innerHTML = `Base amount: <b>${fmtINR(amt)}</b><br>GST @ ${rate}%: <b>${fmtINR(gst)}</b><br>Total: <b>${fmtINR(total)}</b>`;
+    } else {
+      const base = amt / (1 + rate/100);
+      const gst = amt - base;
+      calcGstResult.innerHTML = `Total amount: <b>${fmtINR(amt)}</b><br>Base amount: <b>${fmtINR(base)}</b><br>GST @ ${rate}% included: <b>${fmtINR(gst)}</b>`;
+    }
+  }
+  document.getElementById('calc-add').addEventListener('click', () => runGstCalc('add'));
+  document.getElementById('calc-remove').addEventListener('click', () => runGstCalc('remove'));
+
+  document.getElementById('calc-regime-btn').addEventListener('click', () => {
+    const income = parseFloat(document.getElementById('calc-income').value) || 0;
+    const deductions = parseFloat(document.getElementById('calc-deductions').value) || 0;
+    const resultEl = document.getElementById('calc-regime-result');
+    if (income <= 0){ resultEl.innerHTML = '<p class="hint">Enter your annual income to compare.</p>'; return; }
+
+    function oldRegimeTax(gross){
+      const taxable = Math.max(0, gross - 50000 - deductions); // standard deduction + claimed deductions
+      let tax = 0;
+      const slabs = [[250000,0],[250000,0.05],[500000,0.2],[Infinity,0.3]];
+      let remaining = taxable, lower = 0;
+      for (const [width, rate] of slabs){
+        const slice = Math.min(remaining, width);
+        tax += slice * rate;
+        remaining -= slice;
+        if (remaining <= 0) break;
+      }
+      if (taxable <= 500000) tax = 0; // Sec 87A rebate, old regime
+      return tax * 1.04; // +4% cess
+    }
+    function newRegimeTax(gross){
+      const taxable = Math.max(0, gross - 75000); // standard deduction, new regime
+      // FY 2025-26 (AY 2026-27) slabs per Budget 2025
+      const slabs = [[400000,0],[400000,0.05],[400000,0.1],[400000,0.15],[400000,0.2],[400000,0.25],[Infinity,0.3]];
+      let tax = 0, remaining = taxable;
+      for (const [width, rate] of slabs){
+        const slice = Math.min(remaining, width);
+        tax += slice * rate;
+        remaining -= slice;
+        if (remaining <= 0) break;
+      }
+      if (taxable <= 1200000) tax = 0; // Sec 87A rebate, new regime (raised to ₹12L in Budget 2025)
+      return tax * 1.04;
+    }
+    const oldTax = oldRegimeTax(income);
+    const newTax = newRegimeTax(income);
+    const oldWins = oldTax <= newTax;
+    resultEl.innerHTML = `
+      <div class="regime-compare">
+        <div class="regime-box ${oldWins ? 'win' : ''}"><div class="lbl">Old regime</div><div class="amt">${fmtINR(oldTax)}</div></div>
+        <div class="regime-box ${!oldWins ? 'win' : ''}"><div class="lbl">New regime</div><div class="amt">${fmtINR(newTax)}</div></div>
+      </div>
+      <p class="hint">${oldWins ? 'Old regime looks lower here, mainly because of the deductions entered.' : 'New regime looks lower here.'} This ignores other exemptions (HRA structuring, etc.) that can change the result — confirm with an actual computation.</p>
+    `;
   });
 
   // ---- UPI payment ----
