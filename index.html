@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
 <title>Manoj Tiwari — GST &amp; Income Tax Consultant</title>
 <meta name="description" content="GST filing, income tax, TDS and bookkeeping services in Kolkata.">
 <meta name="theme-color" content="#0B1E3B">
@@ -10,6 +10,16 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
 <meta name="apple-mobile-web-app-title" content="MT Tax">
 <link rel="manifest" href="manifest.json">
+<link rel="canonical" href="https://manojjtiwarii.github.io/manoj-tiwari-app/">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Manoj Tiwari — GST &amp; Income Tax Consultant, Kolkata">
+<meta property="og:description" content="GST filing, ITR, TDS and bookkeeping for businesses in Kolkata. Free first call.">
+<meta property="og:url" content="https://manojjtiwarii.github.io/manoj-tiwari-app/">
+<meta property="og:image" content="https://manojjtiwarii.github.io/manoj-tiwari-app/icon-192.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"AccountingService","name":"Manoj Tiwari — GST & Income Tax Consultant","url":"https://manojjtiwarii.github.io/manoj-tiwari-app/","telephone":"+919830383777","email":"manojjtiwarii@ymail.com","areaServed":"Kolkata","address":{"@type":"PostalAddress","addressLocality":"Kolkata","addressRegion":"West Bengal","addressCountry":"IN"},"description":"GST filing, income tax returns, TDS, Tally bookkeeping, reconciliation and audit support."}</script>
+<!-- ANALYTICS (optional): create a free GoatCounter account, then uncomment and replace YOURCODE:
+<script data-goatcounter="https://YOURCODE.goatcounter.com/count" async src="//gc.zgo.at/count.js"></script> -->
 <link rel="apple-touch-icon" href="apple-touch-icon.png">
 <link rel="icon" href="icon-192.png">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -481,7 +491,7 @@
       <div class="testimonial-scroll">
         <div class="tip-card">
           <div class="tip-tag">DUE DATE</div>
-          <p>GSTR-1 is due on the 11th and GSTR-3B on the 20th of every month. Missing either attracts late fees even with zero tax due.</p>
+          <p>For monthly filers, GSTR-1 is due on the 11th and GSTR-3B on the 20th of every month (quarterly QRMP filers have different dates). Missing either attracts late fees even with zero tax due.</p>
         </div>
         <div class="tip-card">
           <div class="tip-tag">COMMON MISTAKE</div>
@@ -592,6 +602,15 @@
         <div><div class="name">Bookkeeping (Tally)</div><div class="sub">Per month, volume-based</div></div>
         <div class="amt">From ₹3,000/mo</div>
       </div>
+      <div class="price-card">
+        <div><div class="name">GST Registration</div><div class="sub">New registration, one-time</div></div>
+        <div class="amt">On request</div>
+      </div>
+      <div class="price-card">
+        <div><div class="name">Audit Support</div><div class="sub">Statutory &amp; stock audits</div></div>
+        <div class="amt">On request</div>
+      </div>
+      <p class="hint">Applicable GST on professional fees is extra unless confirmed otherwise.</p>
       <p class="hint">Prices shown are indicative starting rates. Final fees depend on transaction volume and complexity, and are confirmed during your free first call.</p>
 
       <div class="section-label">Document checklists</div>
@@ -638,8 +657,10 @@
         <h4>Old vs new tax regime (quick estimate)</h4>
         <div class="field"><label for="calc-income">Annual taxable income (₹)</label><input type="number" id="calc-income" placeholder="e.g. 900000" min="0"></div>
         <div class="field"><label for="calc-deductions">Deductions you claim under old regime (80C, 80D, HRA, etc.) (₹)</label><input type="number" id="calc-deductions" placeholder="e.g. 150000" min="0"></div>
+        <div class="field"><label for="calc-type">Income type</label><select id="calc-type"><option value="salaried">Salaried / pensioner</option><option value="business">Business / professional</option></select></div>
         <button type="button" class="btn btn-gold" id="calc-regime-btn">Compare regimes</button>
         <div id="calc-regime-result"></div>
+        <p class="hint"><b>Estimate only — not tax advice.</b> Actual liability depends on your full return.</p>
         <p class="hint">This is a simplified estimate for individuals under 60, based on current slabs, for quick comparison only — it ignores HRA, marginal relief, and other exemptions. Rates can change with each Budget, so confirm with an actual computation, which I'll do on your free first call.</p>
       </div>
     </section>
@@ -651,13 +672,14 @@
       <p style="color:var(--text-muted);font-size:0.86rem;margin:0 0 18px;line-height:1.6;">The first conversation is free, no obligation. Fill this in and send it straight to me on WhatsApp or email.</p>
 
       <form id="enquiryForm">
+        <div style="position:absolute;left:-9999px;" aria-hidden="true"><input type="text" id="f-gotcha" tabindex="-1" autocomplete="off"></div>
         <div class="field">
           <label for="f-name">Your name</label>
           <input type="text" id="f-name" required placeholder="Full name">
         </div>
         <div class="field">
           <label for="f-phone">Phone number</label>
-          <input type="tel" id="f-phone" required placeholder="10-digit mobile number">
+          <input type="tel" id="f-phone" required inputmode="tel" autocomplete="tel" maxlength="15" placeholder="10-digit mobile number">
         </div>
         <div class="field">
           <label for="f-email">Email (optional)</label>
@@ -713,6 +735,7 @@
         </div>
         <div class="status-msg" id="enquiryStatus"></div>
         <p class="hint">This sends straight to Manoj's inbox automatically — no need to open another app.</p>
+        <p class="hint">By submitting, you agree your details may be used only to respond to this enquiry. They are not shared with third parties.</p>
 
         <div class="section-label" style="margin-top:22px;">Prefer to message directly?</div>
         <div class="btn-row">
@@ -734,6 +757,7 @@
       <h2 style="font-size:1.3rem;margin-bottom:6px;">Share a document</h2>
       <p style="color:var(--text-muted);font-size:0.86rem;margin:0 0 18px;line-height:1.6;">Choose an invoice, statement, GST notice or return copy, then send it straight to me over WhatsApp, email or Drive.</p>
 
+      <p class="hint" style="margin:0 0 12px;"><b>Sensitive files</b> (PAN, Aadhaar, bank statements): you may prefer to share a private Google Drive link or WhatsApp instead. Documents are used only for your work and kept confidential.</p>
       <label class="upload-box" id="uploadBox" for="fileInput">
         <svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><path d="M17 8l-5-5-5 5"/><path d="M12 3v12"/></svg>
         <div class="t">Tap to choose a file</div>
@@ -792,6 +816,19 @@
         <a class="btn btn-gold" href="tel:+919830383777">Call now</a>
       </div>
 
+      <div id="practiceDetails" hidden>
+        <div class="section-label">Practice details</div>
+        <div class="card">
+          <div id="pdHours" class="hint" hidden></div>
+          <div id="pdCred" class="hint" hidden></div>
+          <div id="pdLang" class="hint" hidden></div>
+          <div class="btn-row" style="margin-top:10px;">
+            <a class="btn btn-gold" id="pdBook" target="_blank" rel="noopener" hidden>Book a call</a>
+            <a class="btn btn-ghost" id="pdMap" target="_blank" rel="noopener" hidden>Open in Maps</a>
+          </div>
+        </div>
+      </div>
+
       <div class="section-label">Find &amp; rate us on Google</div>
       <div class="gbp-row">
         <a class="btn btn-navy" href="https://www.google.com/search?q=Manoj+Tiwari+Accounting+Services+Kolkata" target="_blank" rel="noopener">View on Google</a>
@@ -839,6 +876,11 @@
       <details class="faq-item">
         <summary>Can I switch to you mid-year from another accountant?<span class="plus">+</span></summary>
         <div class="a">Absolutely — this is common. Share your existing records and the current filing status, and the transition is handled smoothly from wherever you left off.</div>
+      </details>
+
+      <details class="faq-item">
+        <summary>Privacy notice<span class="plus">+</span></summary>
+        <div class="a">Details you share here (name, phone, email, messages, documents) are used only to respond to your enquiry and carry out your work. They are not sold or shared with third parties without your consent, except where the law requires. The enquiry form is delivered via Formspree. To have your details deleted, message on WhatsApp or email.</div>
       </details>
 
       <p class="footer-note">Whether it's a single overdue GST return or a full move to organised, monthly-reconciled books — the first conversation is free and there's no obligation.</p>
@@ -917,10 +959,12 @@
     const income = parseFloat(document.getElementById('calc-income').value) || 0;
     const deductions = parseFloat(document.getElementById('calc-deductions').value) || 0;
     const resultEl = document.getElementById('calc-regime-result');
+    const salaried = document.getElementById('calc-type').value === 'salaried';
+    const stdOld = salaried ? 50000 : 0, stdNew = salaried ? 75000 : 0;
     if (income <= 0){ resultEl.innerHTML = '<p class="hint">Enter your annual income to compare.</p>'; return; }
 
     function oldRegimeTax(gross){
-      const taxable = Math.max(0, gross - 50000 - deductions); // standard deduction + claimed deductions
+      const taxable = Math.max(0, gross - stdOld - deductions); // standard deduction + claimed deductions
       let tax = 0;
       const slabs = [[250000,0],[250000,0.05],[500000,0.2],[Infinity,0.3]];
       let remaining = taxable, lower = 0;
@@ -934,8 +978,8 @@
       return tax * 1.04; // +4% cess
     }
     function newRegimeTax(gross){
-      const taxable = Math.max(0, gross - 75000); // standard deduction, new regime
-      // FY 2025-26 (AY 2026-27) slabs per Budget 2025
+      const taxable = Math.max(0, gross - stdNew); // standard deduction, new regime
+      // Slabs per Budget 2025, unchanged for FY 2026-27 — re-verify after every Budget
       const slabs = [[400000,0],[400000,0.05],[400000,0.1],[400000,0.15],[400000,0.2],[400000,0.25],[Infinity,0.3]];
       let tax = 0, remaining = taxable;
       for (const [width, rate] of slabs){
@@ -944,7 +988,7 @@
         remaining -= slice;
         if (remaining <= 0) break;
       }
-      if (taxable <= 1200000) tax = 0; // Sec 87A rebate, new regime (raised to ₹12L in Budget 2025)
+      if (taxable <= 1200000) tax = 0; else tax = Math.min(tax, taxable - 1200000); // 87A rebate + marginal relief above ₹12L
       return tax * 1.04;
     }
     const oldTax = oldRegimeTax(income);
@@ -977,6 +1021,23 @@
     if (amount) uri += `&am=${encodeURIComponent(amount)}`;
     window.location.href = uri;
   });
+
+  // ---- EDIT THESE: leave '' to keep a section hidden ----
+  const PRACTICE = {
+    hours: '',          // e.g. 'Mon–Sat, 10 AM – 6 PM · replies within 2 hours'
+    credentials: '',    // e.g. 'GST Practitioner (Reg. No. …) · B.Com'
+    languages: '',      // e.g. 'English, Hindi, Bengali'
+    bookingUrl: '',     // Google Calendar appointment page / Calendly link
+    mapsUrl: '',        // Google Maps link to your office
+    googleReviewUrl: '' // your Google Business Profile review link
+  };
+  (function(){
+    const set = (id, txt) => { const el = document.getElementById(id); if (txt){ el.textContent = txt; el.hidden = false; return true; } return false; };
+    const link = (id, url) => { const el = document.getElementById(id); if (url){ el.href = url; el.hidden = false; return true; } return false; };
+    const any = [set('pdHours', PRACTICE.hours && '🕒 ' + PRACTICE.hours), set('pdCred', PRACTICE.credentials && '🎓 ' + PRACTICE.credentials), set('pdLang', PRACTICE.languages && '🗣 ' + PRACTICE.languages), link('pdBook', PRACTICE.bookingUrl), link('pdMap', PRACTICE.mapsUrl)].some(Boolean);
+    if (any) document.getElementById('practiceDetails').hidden = false;
+    if (PRACTICE.googleReviewUrl) document.querySelectorAll('.gbp-row a').forEach(a => a.href = PRACTICE.googleReviewUrl);
+  })();
 
   // ---- Screen navigation ----
   const screens = document.querySelectorAll('.screen');
@@ -1051,14 +1112,14 @@
     el.className = 'status-msg show ' + (ok ? 'ok' : 'err');
   }
   function validate(f){
-    return f.name && f.phone;
+    return f.name && /^(\+?91)?[6-9]\d{9}$/.test(f.phone.replace(/[\s-]/g,''));
   }
 
   const submitBtn = document.getElementById('submitEnquiry');
   const submitLabel = document.getElementById('submitEnquiryLabel');
   submitBtn.addEventListener('click', async () => {
     const f = getFields();
-    if (!validate(f)){ showStatus(enquiryStatus, 'Please add your name and phone number first.', false); return; }
+    if (!validate(f)){ showStatus(enquiryStatus, 'Please add your name and a valid 10-digit mobile number.', false); return; }
 
     submitBtn.disabled = true;
     submitLabel.textContent = 'Sending…';
@@ -1073,6 +1134,7 @@
           service: f.service,
           message: f.message || 'No additional message',
           requested_call: (f.date || f.time) ? `${f.date ? formatDate(f.date) : 'Date flexible'}${f.time ? ' — ' + f.time : ''}` : 'Not requested',
+          _gotcha: document.getElementById('f-gotcha').value,
           _subject: 'New enquiry — ' + f.service
         })
       });
@@ -1092,12 +1154,12 @@
 
   document.getElementById('sendWhatsapp').addEventListener('click', () => {
     const f = getFields();
-    if (!validate(f)){ showStatus(enquiryStatus, 'Please add your name and phone number first.', false); return; }
+    if (!validate(f)){ showStatus(enquiryStatus, 'Please add your name and a valid 10-digit mobile number.', false); return; }
     window.open('https://wa.me/919830383777?text=' + encodeURIComponent(buildEnquiryText(f)), '_blank');
   });
   document.getElementById('sendEmail').addEventListener('click', () => {
     const f = getFields();
-    if (!validate(f)){ showStatus(enquiryStatus, 'Please add your name and phone number first.', false); return; }
+    if (!validate(f)){ showStatus(enquiryStatus, 'Please add your name and a valid 10-digit mobile number.', false); return; }
     const subject = encodeURIComponent('Enquiry — ' + f.service);
     window.location.href = 'mailto:manojjtiwarii@ymail.com?subject=' + subject + '&body=' + encodeURIComponent(buildEnquiryText(f));
   });
@@ -1118,9 +1180,10 @@
       chip.className = 'file-chip';
       chip.innerHTML = `
         <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M7 3h8l4 4v14a1 1 0 01-1 1H7a1 1 0 01-1-1V4a1 1 0 011-1z"/></svg></div>
-        <div class="name">${chosenFile.name}</div>
+        <div class="name"></div>
         <button class="rm" aria-label="Remove file">✕</button>
       `;
+      chip.querySelector('.name').textContent = chosenFile.name;
       chip.querySelector('.rm').addEventListener('click', () => {
         chosenFile = null;
         fileInput.value = '';
@@ -1151,4 +1214,4 @@
 </script>
 
 </body>
-</html>
+</html> 
